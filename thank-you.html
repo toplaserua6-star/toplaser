@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дякуємо за замовлення – TopLaser</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="thankyou">
+  <div class="thank-container fade-in">
+    <div style="font-size: 4rem; margin-bottom: 1.5rem;">✅</div>
+    <h1 data-ua="Дякуємо за замовлення!" data-ru="Спасибо за заказ!">Дякуємо за замовлення!</h1>
+    <p data-ua="Ваша заявка успішно відправлена! Наш менеджер зв'яжеться з вами найближчим часом для підтвердження замовлення." 
+       data-ru="Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время для подтверждения заказа.">
+       Ваша заявка успішно відправлена! Наш менеджер зв'яжеться з вами найближчим часом для підтвердження замовлення.
+    </p>
+    <div style="margin: 2rem 0; padding: 1.5rem; background: #f0fff4; border-radius: 12px; border-left: 4px solid #2EB872;">
+      <p style="margin: 0; color: #1a1a1a; font-weight: 600;" 
+         data-ua="📞 Очікуйте дзвінок протягом 15 хвилин" 
+         data-ru="📞 Ожидайте звонок в течение 15 минут">
+         📞 Очікуйте дзвінок протягом 15 хвилин
+      </p>
+    </div>
+    <a href="index.html" class="btn-primary" data-ua="Повернутися на головну 🏠" data-ru="Вернуться на главную 🏠">
+      Повернутися на головну 🏠
+    </a>
+  </div>
+
+  <script>
+    // === Language Switcher for Thank You Page ===
+    const savedLang = localStorage.getItem("preferredLang") || "ua";
+    
+    function setLang(lang) {
+      document.querySelectorAll("[data-ua]").forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+    }
+    
+    // Apply saved language
+    setLang(savedLang);
+    
+    // Add loaded class for animation
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>
