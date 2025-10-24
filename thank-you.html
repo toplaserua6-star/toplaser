@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Дякуємо за замовлення – TopLaser</title>
+  <meta name="description" content="Ваша заявка прийнята! Очікуйте дзвінок менеджера.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,43 +12,139 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="thankyou">
-  <div class="thank-container fade-in">
-    <div style="font-size: 4rem; margin-bottom: 1.5rem;">✅</div>
-    <h1 data-ua="Дякуємо за замовлення!" data-ru="Спасибо за заказ!">Дякуємо за замовлення!</h1>
-    <p data-ua="Ваша заявка успішно відправлена! Наш менеджер зв'яжеться з вами найближчим часом для підтвердження замовлення." 
-       data-ru="Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время для подтверждения заказа.">
-       Ваша заявка успішно відправлена! Наш менеджер зв'яжеться з вами найближчим часом для підтвердження замовлення.
-    </p>
-    <div style="margin: 2rem 0; padding: 1.5rem; background: #f0fff4; border-radius: 12px; border-left: 4px solid #2EB872;">
-      <p style="margin: 0; color: #1a1a1a; font-weight: 600;" 
-         data-ua="📞 Очікуйте дзвінок протягом 15 хвилин" 
-         data-ru="📞 Ожидайте звонок в течение 15 минут">
-         📞 Очікуйте дзвінок протягом 15 хвилин
-      </p>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">TopLaser</span>
+      </div>
+      
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ua">UA</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
     </div>
-    <a href="index.html" class="btn-primary" data-ua="Повернутися на головну 🏠" data-ru="Вернуться на главную 🏠">
-      Повернутися на головну 🏠
-    </a>
-  </div>
+  </header>
+
+  <!-- Thank You Hero -->
+  <section class="thankyou-hero">
+    <div class="thankyou-overlay"></div>
+    <div class="container thankyou-content">
+      <div class="success-animation">
+        <div class="success-circle">
+          <div class="success-checkmark">✓</div>
+        </div>
+      </div>
+      
+      <h1 class="thankyou-title fade-in" data-ua="Дякуємо за замовлення!" data-ru="Спасибо за заказ!">
+        Дякуємо за замовлення!
+      </h1>
+      
+      <p class="thankyou-subtitle fade-in" data-ua="Ваша заявка №" data-ru="Ваша заявка №">
+        Ваша заявка №<span id="orderNumber"></span> успішно прийнята
+      </p>
+
+      <div class="thankyou-cards">
+        <div class="thankyou-card fade-up">
+          <div class="card-icon">📞</div>
+          <h3 data-ua="Очікуйте дзвінок" data-ru="Ожидайте звонок">Очікуйте дзвінок</h3>
+          <p data-ua="Наш менеджер зв'яжеться з вами протягом 15 хвилин для підтвердження замовлення" 
+             data-ru="Наш менеджер свяжется с вами в течение 15 минут для подтверждения заказа">
+             Наш менеджер зв'яжеться з вами протягом 15 хвилин для підтвердження замовлення
+          </p>
+        </div>
+
+        <div class="thankyou-card fade-up" style="animation-delay: 0.1s;">
+          <div class="card-icon">🚚</div>
+          <h3 data-ua="Швидка доставка" data-ru="Быстрая доставка">Швидка доставка</h3>
+          <p data-ua="Відправка замовлення протягом 24 годин після підтвердження" 
+             data-ru="Отправка заказа в течение 24 часов после подтверждения">
+             Відправка замовлення протягом 24 годин після підтвердження
+          </p>
+        </div>
+
+        <div class="thankyou-card fade-up" style="animation-delay: 0.2s;">
+          <div class="card-icon">✅</div>
+          <h3 data-ua="Гарантія якості" data-ru="Гарантия качества">Гарантія якості</h3>
+          <p data-ua="12 місяців офіційної гарантії на всі товари" 
+             data-ru="12 месяцев официальной гарантии на все товары">
+             12 місяців офіційної гарантії на всі товари
+          </p>
+        </div>
+      </div>
+
+      <div class="thankyou-actions">
+        <a href="index.html" class="btn-primary btn-glow" data-ua="Повернутися на головну 🏠" data-ru="Вернуться на главную 🏠">
+          Повернутися на головну 🏠
+        </a>
+      </div>
+
+      <div class="thankyou-note fade-in">
+        <p data-ua="💚 Дякуємо, що обрали TopLaser! Ми цінуємо вашу довіру." 
+           data-ru="💚 Спасибо, что выбрали TopLaser! Мы ценим ваше доверие.">
+           💚 Дякуємо, що обрали TopLaser! Ми цінуємо вашу довіру.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <script>
-    // === Language Switcher for Thank You Page ===
+    // === Generate Order Number ===
+    const orderNumber = Math.floor(100000 + Math.random() * 900000);
+    document.getElementById('orderNumber').textContent = orderNumber;
+
+    // === Language Switcher ===
     const savedLang = localStorage.getItem("preferredLang") || "ua";
+    let currentLang = savedLang;
     
     function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem("preferredLang", lang);
+      
       document.querySelectorAll("[data-ua]").forEach(el => {
         el.textContent = el.dataset[lang];
       });
+      
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
     }
     
-    // Apply saved language
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => setLang(btn.dataset.lang));
+    });
+    
     setLang(savedLang);
     
-    // Add loaded class for animation
+    // === Animations ===
     window.addEventListener('load', () => {
       document.body.classList.add('loaded');
+      
+      // Success animation
+      setTimeout(() => {
+        document.querySelector('.success-circle').classList.add('animate');
+      }, 300);
     });
+
+    // === Confetti Effect (optional) ===
+    function createConfetti() {
+      const colors = ['#2EB872', '#FFD300', '#ffffff'];
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+    
+    setTimeout(createConfetti, 500);
   </script>
 </body>
 </html>
