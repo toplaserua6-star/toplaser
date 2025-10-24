@@ -72,6 +72,7 @@
   <section class="gallery">
     <div class="container">
       <h2 class="section-title" data-ua="📸 Фото товару" data-ru="📸 Фото товара">📸 Фото товару</h2>
+      <p class="gallery-counter"><span id="currentPhoto">1</span> / 8</p>
       <div class="gallery-temu fade-up">
         <!-- Thumbnails Column -->
         <div class="gallery-thumbnails">
@@ -456,14 +457,20 @@
     // === Gallery Thumbnails Interaction ===
     const thumbnails = document.querySelectorAll('.thumbnail-item');
     const mainImage = document.getElementById('mainGalleryImage');
+    const photoCounter = document.getElementById('currentPhoto');
     
-    thumbnails.forEach(thumb => {
+    thumbnails.forEach((thumb, index) => {
       thumb.addEventListener('click', function() {
         // Remove active class from all thumbnails
         thumbnails.forEach(t => t.classList.remove('active'));
         
         // Add active class to clicked thumbnail
         this.classList.add('active');
+        
+        // Update counter
+        if (photoCounter) {
+          photoCounter.textContent = index + 1;
+        }
         
         // Change main image
         const newImageSrc = this.getAttribute('data-image');
