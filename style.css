@@ -623,25 +623,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-thumbnails::-webkit-scrollbar {
-  height: 10px;
+  height: 12px;
 }
 
 .gallery-thumbnails::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
   margin: 0 1rem;
 }
 
 .gallery-thumbnails::-webkit-scrollbar-thumb {
   background: var(--primary-green);
-  border-radius: 5px;
-  border: 2px solid transparent;
+  border-radius: 6px;
+  border: 3px solid transparent;
   background-clip: padding-box;
+  min-width: 50px;
 }
 
 .gallery-thumbnails::-webkit-scrollbar-thumb:hover {
   background: var(--primary-green-dark);
   background-clip: padding-box;
+}
+
+.gallery-thumbnails::-webkit-scrollbar-thumb:active {
+  background: var(--primary-green);
 }
 
 /* === Reviews Section === */
@@ -982,7 +987,22 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .gallery {
-    padding: 3rem 0;
+    padding: 2rem 0;
+  }
+
+  .gallery .container {
+    padding: 0;
+  }
+
+  .gallery .section-title {
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-counter {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    margin: 0.5rem 0 1rem 0;
   }
 
   /* Gallery Temu Style - Mobile */
@@ -996,31 +1016,34 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: row;
     width: 100%;
     overflow-x: auto;
-    gap: 1rem;
-    padding: 0 1rem 1rem 1rem;
+    gap: 1.25rem;
+    padding: 0 1rem 1.25rem 1rem;
     order: 2;
   }
 
   .gallery-main {
     order: 1;
-    margin: 0 1rem;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .thumbnail-item {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     flex-shrink: 0;
-    border-radius: 12px;
-    border-width: 4px;
+    border-radius: 16px;
+    border-width: 5px;
   }
 
   .thumbnail-item.active {
-    border-width: 4px;
+    border-width: 5px;
+    box-shadow: 0 0 0 3px rgba(46, 184, 114, 0.3);
   }
 
   .main-image-container {
     padding-top: 100%;
-    border-radius: 20px;
+    border-radius: 0;
   }
 
   .btn-primary {
@@ -1095,19 +1118,28 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .thumbnail-item {
-    width: 110px;
-    height: 110px;
-    border-radius: 10px;
-    border-width: 3px;
+    width: 130px;
+    height: 130px;
+    border-radius: 14px;
+    border-width: 4px;
+  }
+
+  .thumbnail-item.active {
+    box-shadow: 0 0 0 2px rgba(46, 184, 114, 0.3);
   }
 
   .gallery-thumbnails {
-    gap: 0.75rem;
-    padding: 0 0.75rem 0.75rem 0.75rem;
+    gap: 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 
   .gallery-main {
-    margin: 0 0.75rem;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .main-image-container {
+    border-radius: 0;
   }
 
   .image-zoom-hint {
@@ -1117,6 +1149,10 @@ h1, h2, h3, h4, h5, h6 {
   .section-title {
     font-size: 1.75rem;
     padding: 0 1rem;
+  }
+
+  .gallery-counter {
+    font-size: 1.1rem;
   }
 }
 
