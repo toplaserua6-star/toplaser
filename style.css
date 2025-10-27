@@ -31,6 +31,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -40,7 +43,12 @@ body {
   line-height: 1.6;
   background: var(--bg-white);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
   visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body.loaded {
@@ -51,6 +59,8 @@ body.loaded {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* === Typography === */
@@ -773,18 +783,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .products {
+    padding: 4rem 1rem;
+    overflow-x: hidden;
+  }
+  
   .products-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 100%;
+  }
+  
+  .product-card {
+    max-width: 100%;
+    margin: 0 auto;
   }
   
   .product-image {
     height: 280px;
   }
   
+  .product-image img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
   .product-title {
     font-size: 1.1rem;
     min-height: auto;
+  }
+  
+  .product-info {
+    padding: 1.5rem;
   }
 }
 
@@ -1451,6 +1482,53 @@ h1, h2, h3, h4, h5, h6 {
 
   .thank-container p {
     font-size: 1rem;
+  }
+  
+  /* Fix mobile scrolling issues */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .hero, .specs, .order {
+    background-attachment: scroll !important;
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Prevent horizontal overflow */
+  .hero-content,
+  .benefits-grid,
+  .specs-grid,
+  .reviews-grid,
+  .order-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Disable heavy animations on mobile for better performance */
+  .contact-widget-toggle {
+    animation: pulse-yellow 2s infinite;
+  }
+  
+  .contact-widget-toggle:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
+  
+  /* Optimize parallax for mobile */
+  .parallax {
+    background-attachment: scroll !important;
+  }
+  
+  /* Fix form on mobile */
+  .order-form {
+    max-width: 100%;
+  }
+  
+  .form-input {
+    font-size: 16px !important;
   }
 }
 
