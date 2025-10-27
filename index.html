@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17679630383"></script>
 <script>
@@ -32,8 +31,6 @@
       'currency': 'UAH'
   });
 </script>
-
-  
 <body>
   <!-- Header -->
   <header class="header">
@@ -331,19 +328,18 @@
            data-ru="Наш менеджер свяжется с вами в течение 15 минут">
            Наш менеджер зв'яжеться з вами протягом 15 хвилин
         </p>
-        <form class="order-form" action="https://formspree.io/f/xdkpkbeg" method="POST">
-          <!-- FormSubmit Configuration -->
-          <input type="hidden" name="_subject" value="Нова заявка з TopLaser!">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://toplaser.shop/thank-you.html">
+        <form class="order-form" id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Configuration -->
+          <input type="hidden" name="access_key" value="8f99ff93-f875-43ea-ab9c-6869985d9c73">
+          <input type="hidden" name="subject" value="Нова заявка з TopLaser!">
+          <input type="hidden" name="redirect" value="https://toplaser.shop/thank-you.html">
           
           <div class="form-group">
-            <input type="text" name="Ім'я" class="form-input" placeholder="Ваше ім'я" 
+            <input type="text" name="name" class="form-input" placeholder="Ваше ім'я" 
                    data-placeholder-ua="Ваше ім'я" data-placeholder-ru="Ваше имя" required />
           </div>
           <div class="form-group">
-            <input type="tel" name="Телефон" class="form-input" placeholder="Ваш телефон" 
+            <input type="tel" name="phone" class="form-input" placeholder="Ваш телефон" 
                    data-placeholder-ua="Ваш телефон" data-placeholder-ru="Ваш телефон" required />
           </div>
           <button type="submit" class="btn-primary btn-submit btn-glow" data-ua="Надіслати заявку ✨" data-ru="Отправить заявку ✨">
@@ -447,9 +443,26 @@
     
     startCountdown();
 
-    // === Form Submission ===
-    // Форма тепер відправляється через FormSubmit на email: toplaserua6@gmail.com
-    // При першій відправці потрібно підтвердити email (перевірте пошту)
+    // === Form Submission with Google Ads Conversion ===
+    const form = document.getElementById('orderForm');
+    
+    form.addEventListener('submit', function(e) {
+      // Отправляем Google Ads конверсию перед отправкой формы
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17679630383/-i9lCKSg9LMbEK-Ap-5B',
+          'value': 1.0,
+          'currency': 'UAH'
+        });
+      }
+      
+      // Показываем индикатор загрузки
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = currentLang === 'ua' ? 'Відправка...' : 'Отправка...';
+      
+      // Web3Forms сам сделает редирект после успешной отправки
+    })
 
     // === Fade-up Animation on Scroll ===
     function fadeUpOnScroll() {
